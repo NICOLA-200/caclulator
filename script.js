@@ -53,7 +53,7 @@ clear.addEventListener ('click', () => {
 
 erase.addEventListener("click", () => {
      
-     input.value = input.value.substr(0, input.value.length)
+     input.value = input.value.substr(0, input.value.length - 1)
      console.log(input.value)
 })
 
