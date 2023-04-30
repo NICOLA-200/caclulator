@@ -1,3 +1,5 @@
+
+
 let equal_pressed = 0;
 
 let button_input = document.querySelectorAll(".input-button")
@@ -23,12 +25,35 @@ button_input.forEach((button_class) => {
                equal_pressed = 0;
           }
 
-          input.value +=button_class.value
+          input.value += button_class.value
      })
 })
 
 equal.addEventListener("click", () =>{
      equal_pressed = 1;
-     console.log(equal_pressed)
-     let inp_val = input.value
+     let inp_val = input.value;
+    
+
+     try {
+          let solution = eval(inp_val)
+
+          if(Number.isInteger(solution)) {
+               input.value = solution
+          } else {
+               input.value = solution.toFixed(2)
+          }
+     } catch (err) {
+          alert("invalid Input")
+     }
+});
+
+clear.addEventListener ('click', () => {
+     input.value = "";
 })
+
+erase.addEventListener("click", () => {
+     
+     input.value = input.value.substr(0, input.value.length)
+     console.log(input.value)
+})
+
